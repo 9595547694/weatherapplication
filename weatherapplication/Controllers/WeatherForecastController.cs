@@ -1,4 +1,7 @@
+using Azure.Messaging.ServiceBus;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text.Json.Nodes;
 
 namespace weatherapplication.Controllers
 {
@@ -29,5 +32,40 @@ namespace weatherapplication.Controllers
             })
             .ToArray();
         }
+
+        /* 
+                [HttpPost]
+                [Route("SentToServiceBus")]
+               public async Task<IActionResult> SentToServiceBus(JsonObject GitData)
+                {
+                    try
+                    {
+                        ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebus8.servicebus.windows.net/;SharedAccessKeyName=mypolicy;SharedAccessKey=qKB5Gq6kELfeAAH6A7Oj9RsWbBr4C83q1+ASbFomogM=;EntityPath=mytopic");
+                        ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("mytopic");
+                        ServiceBusMessageBatch serviceBusMessageBatch = await serviceBusSender.CreateMessageBatchAsync();
+                        ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(GitData));
+                        serviceBusMessage.ContentType = "application/json";
+                        serviceBusMessageBatch.TryAddMessage(serviceBusMessage);
+                        await serviceBusSender.SendMessagesAsync(serviceBusMessageBatch);
+                        await serviceBusSender.DisposeAsync();
+                        await serviceBusClient.DisposeAsync();
+                        return Ok("Data Send To Topic");
+                    }
+                    catch (Exception ex)
+                    {
+                        return Ok(ex.ToString());
+                    }
+                }  */
+
+        [HttpPost]
+        [Route("Create")]
+        public async Task<IActionResult> Create([FromBody] WeatherForecast weatherForecast)
+        {
+            List <WeatherForecast> weatherForecasts = new List<WeatherForecast>();
+             weatherForecasts.Add(weatherForecast);
+            return Ok(weatherForecasts);
+
+        }
+
     }
 }
