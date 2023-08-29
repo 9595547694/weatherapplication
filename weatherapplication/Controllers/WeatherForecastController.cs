@@ -36,7 +36,7 @@ namespace weatherapplication.Controllers
         
                 [HttpPost]
                 [Route("SentToServiceBus")]
-               public async Task<IActionResult> SentToServiceBus(JsonObject GitData)
+               public async Task<IActionResult> SentToServiceBus1(JsonObject GitData)
                 {
                     try
                     {
