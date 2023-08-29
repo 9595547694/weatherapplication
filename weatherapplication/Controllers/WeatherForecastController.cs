@@ -36,7 +36,7 @@ namespace weatherapplication.Controllers
         
                 [HttpPost]
                 [Route("SentToServiceBus")]
-               public async Task<IActionResult> SentToServiceBus1(JsonObject GitData)
+               public async Task<IActionResult> SentToServiceBus(JsonObject GitData)
                 {
                     try
                     {
@@ -61,7 +61,7 @@ namespace weatherapplication.Controllers
                     }
                 }  
 
-       /* [HttpPost]
+        [HttpPost]
         [Route("Post")]
         public async Task<IActionResult> CreatePost([FromBody] WeatherForecast weatherForecast)
         {
@@ -69,7 +69,7 @@ namespace weatherapplication.Controllers
              weatherForecasts.Add(weatherForecast);
             return Ok(weatherForecasts);
 
-        }*/
+        }
 
     }
 }
