@@ -61,7 +61,7 @@ namespace weatherapplication.Controllers
                     }
                 }  
 
-        [HttpPost]
+       /* [HttpPost]
         [Route("Post")]
         public async Task<IActionResult> CreatePost([FromBody] WeatherForecast weatherForecast)
         {
@@ -69,7 +69,7 @@ namespace weatherapplication.Controllers
              weatherForecasts.Add(weatherForecast);
             return Ok(weatherForecasts);
 
-        }
+        }*/
 
     }
 }
