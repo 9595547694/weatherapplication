@@ -36,7 +36,7 @@ namespace weatherapplication.Controllers
         
                 [HttpPost]
                 [Route("SentToServiceBus")]
-               public async Task<IActionResult> SentToServiceBus(JsonObject GitData)
+                public async Task<IActionResult> SentToServiceBus(JsonObject GitData)
                 {
                     try
                     {
@@ -63,7 +63,7 @@ namespace weatherapplication.Controllers
 
         [HttpPost]
         [Route("Post")]
-        public async Task<IActionResult> CreatePost([FromBody] WeatherForecast weatherForecast)
+        public async Task<IActionResult> CreatePost1([FromBody] WeatherForecast weatherForecast)
         {
             List <WeatherForecast> weatherForecasts = new List<WeatherForecast>();
              weatherForecasts.Add(weatherForecast);
