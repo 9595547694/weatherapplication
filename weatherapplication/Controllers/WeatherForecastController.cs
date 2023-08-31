@@ -1,6 +1,7 @@
 using Azure.Messaging.ServiceBus;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 using System.Text.Json.Nodes;
 
 namespace weatherapplication.Controllers
@@ -33,33 +34,39 @@ namespace weatherapplication.Controllers
             .ToArray();
         }
 
-        
-                [HttpPost]
-                [Route("SentToServiceBus")]
-                public async Task<IActionResult> SentToServiceBus(JsonObject GitData)
+
+        [HttpPost]
+        [Route("SentToServiceBus")]
+        public async Task<IActionResult> SentToServiceBus()
+        {
+            using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {
+                string payload = await reader.ReadToEndAsync();
+                dynamic jsonData = JsonConvert.DeserializeObject(payload);
+                string commitId = jsonData.after;
+                try
                 {
-                    try
+                    ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebus8.servicebus.windows.net/;SharedAccessKeyName=mypolicy;SharedAccessKey=qKB5Gq6kELfeAAH6A7Oj9RsWbBr4C83q1+ASbFomogM=;EntityPath=mytopic");
+                    ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("mytopic");
+                    ServiceBusMessageBatch serviceBusMessageBatch = await serviceBusSender.CreateMessageBatchAsync();
+                    ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(jsonData, Formatting.None,
+                    new JsonSerializerSettings()
                     {
-                        ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebus8.servicebus.windows.net/;SharedAccessKeyName=mypolicy;SharedAccessKey=qKB5Gq6kELfeAAH6A7Oj9RsWbBr4C83q1+ASbFomogM=;EntityPath=mytopic");
-                        ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("mytopic");
-                        ServiceBusMessageBatch serviceBusMessageBatch = await serviceBusSender.CreateMessageBatchAsync();
-                        ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(GitData, Formatting.None,
-                        new JsonSerializerSettings()
-                        {
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                        }));
-                        serviceBusMessage.ContentType = "application/json";
-                        serviceBusMessageBatch.TryAddMessage(serviceBusMessage);
-                        await serviceBusSender.SendMessagesAsync(serviceBusMessageBatch);
-                        await serviceBusSender.DisposeAsync();
-                        await serviceBusClient.DisposeAsync();
-                        return Ok("Data Send To Topic");
-                    }
-                    catch (Exception ex)
-                    {
-                        return Ok(ex.ToString());
-                    }
-                }  
+                    }));
+                    serviceBusMessage.ContentType = "application/json";
+                    serviceBusMessageBatch.TryAddMessage(serviceBusMessage);
+                    await serviceBusSender.SendMessagesAsync(serviceBusMessageBatch);
+                    await serviceBusSender.DisposeAsync();
+                    await serviceBusClient.DisposeAsync();
+                    return Ok("Data Send To Topic");
+                }
+                catch (Exception ex)
+                {
+                    return Ok(ex.ToString());
+                }
+            }
+        }
 
         [HttpPost]
         [Route("Post")]
