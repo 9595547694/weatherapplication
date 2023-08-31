@@ -63,7 +63,7 @@ namespace weatherapplication.Controllers
 
         [HttpPost]
         [Route("Post")]
-        public async Task<IActionResult> Post([FromBody] WeatherForecast weatherForecast)
+        public async Task<IActionResult> CreatePost([FromBody] WeatherForecast weatherForecast)
         {
             List <WeatherForecast> weatherForecasts = new List<WeatherForecast>();
              weatherForecasts.Add(weatherForecast);
