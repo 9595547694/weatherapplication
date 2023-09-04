@@ -2,7 +2,10 @@ using Azure.Messaging.ServiceBus;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
+using weatherapplication;
 using System.Text.Json.Nodes;
+using Microsoft.Extensions.Azure;
+using Octokit;
 
 namespace weatherapplication.Controllers
 {
@@ -14,6 +17,11 @@ namespace weatherapplication.Controllers
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
+
+
+
+
+
 
         private readonly ILogger<WeatherForecastController> _log;
 
@@ -42,8 +50,8 @@ namespace weatherapplication.Controllers
         {
             var filteredData = new
             {
-                Field1 = payload.id,
-                Field2 = payload.node_id,
+                Field1 = payload,
+               // Field2 = payload.node_id,
                
             };
             SentToServiceBus(filteredData);
@@ -81,8 +89,44 @@ namespace weatherapplication.Controllers
         {
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
+
+                // Assuming you have the JSON payload as a string named 'jsonPayload'
+              
+
+                // Deserialize the JSON payload into the GitHubWebhookPayload class
+               // GitHubWebhookPayload webhookPayload = JsonConvert.DeserializeObject<GitHubWebhookPayload>(jsonPayload);
+
+                // Access the properties of the deserialized object
+                //string branchRef = webhookPayload.@ref;
+                //string beforeCommit = webhookPayload.before;
+                //string afterCommit = webhookPayload.after;
+
+                //// Access other properties as needed
+                //GitHubRepository repository = webhookPayload.repository;
+                //GitHubUser pusher = webhookPayload.pusher;
+                //GitHubUser sender = webhookPayload.sender;
+
+                //// Access commits if present
+                //List<GitHubCommit> commits = webhookPayload.commits;
+                //GitHubCommit headCommit = webhookPayload.head_commit;
+
+                // Now you can work with the deserialized data
+
                 string payload = await reader.ReadToEndAsync();
                 dynamic jsonData = JsonConvert.DeserializeObject(payload);
+                string jsonPayload = jsonData;
+
+              /*  GitHubWebhookPayload webhookPayload = JsonConvert.DeserializeObject<GitHubWebhookPayload>(jsonPayload);
+                string branchRef = jsonData.@ref;
+                string beforeCommit = jsonData.before;
+                string afterCommit = jsonData.after;
+
+                GitHubRepository repository = jsonData.repository;
+                GitHubUser pusher = jsonData.pusher;
+                GitHubUser sender = jsonData.sender;*/
+
+                List<GitHubCommit> commits = jsonData.commits;
+                GitHubCommit headCommit = jsonData.head_commit;
                 string commitId = jsonData.after;
                 try
                 {
