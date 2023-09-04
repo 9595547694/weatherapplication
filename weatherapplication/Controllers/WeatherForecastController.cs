@@ -34,10 +34,50 @@ namespace weatherapplication.Controllers
             .ToArray();
         }
 
+       
+
+
+        [HttpPost]
+        public IActionResult ReceivePayload([FromBody] WebhookPayload payload)
+        {
+            var filteredData = new
+            {
+                Field1 = payload.id,
+                Field2 = payload.node_id,
+               
+            };
+            SentToServiceBus(filteredData);
+
+            return Ok("Filtered payload sent to Azure Service Bus.");
+
+
+            // Validate the secret token provided in the request headers
+           /* string secretToken = "YourWebhookSecret"; // Replace with your actual secret
+            string receivedSignature = Request.Headers["X-Hub-Signature"];
+
+            if (!VerifyWebhookSignature(Request.Body, secretToken, receivedSignature))
+            {
+                return Unauthorized("Invalid signature.");
+            }
+
+            // Handle the payload data
+            return Ok("Payload received successfully.");
+            */
+        }
+
+
+       /* private bool VerifyWebhookSignature(Stream requestBody, string secretToken, string receivedSignature)
+        {
+            // Implement verification logic here
+            // Compare receivedSignature with computed signature based on secretToken and requestBody
+            return true; // Return true if the signature is valid
+        }*/
+
+
 
         [HttpPost]
         [Route("SentToServiceBus")]
-        public async Task<IActionResult> SentToServiceBus()
+        public async Task<IActionResult> SentToServiceBus(object filteredData)
         {
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
