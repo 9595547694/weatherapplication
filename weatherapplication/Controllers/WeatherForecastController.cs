@@ -50,7 +50,7 @@ namespace weatherapplication.Controllers
                     ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebus8.servicebus.windows.net/;SharedAccessKeyName=mypolicy;SharedAccessKey=qKB5Gq6kELfeAAH6A7Oj9RsWbBr4C83q1+ASbFomogM=;EntityPath=mytopic");
                     ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("mytopic");
                     ServiceBusMessageBatch serviceBusMessageBatch = await serviceBusSender.CreateMessageBatchAsync();
-                    ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(node_id, Formatting.None,
+                    ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(jsonData, Formatting.None,
                     new JsonSerializerSettings()
                     {
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
