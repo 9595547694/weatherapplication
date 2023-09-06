@@ -1,11 +1,8 @@
 using Azure.Messaging.ServiceBus;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Dynamic;
 using System.Text;
 using System.Text.Json.Nodes;
-using static weatherapplication.Commit;
 
 namespace weatherapplication.Controllers
 {
@@ -19,7 +16,6 @@ namespace weatherapplication.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _log;
-        private readonly string jsonString;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
@@ -43,16 +39,32 @@ namespace weatherapplication.Controllers
         [Route("SentToServiceBus")]
         public async Task<IActionResult> SentToServiceBus()
         {
-          
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
+
+                string json = @"{
+                ""action"": ""deleted"",
+                 ""ref"": ""refs/heads/master"",
+                 ""before"": ""4b2655489b7e90a4208d3615b9959a17a8f0b92f"",
+                    ""after"": ""5a7768ffdfc2672572ef4d4f67b60070c098e7bd"",
+                ""pull_request"": {
+                ""title"": ""Fix button""
+                   }
+                }";
+                dynamic obj = JsonConvert.DeserializeObject(json);
+                GithubPayload entity = new GithubPayload();
+                entity.Action = obj.action;
+                entity.Name = obj.pull_request.title;
+
+
+
                 string payload = await reader.ReadToEndAsync();
                 dynamic jsonData = JsonConvert.DeserializeObject(payload);
                 string commitId = jsonData.after;
               
                 try
                 {
-                    ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebuspayload.servicebus.windows.net/;SharedAccessKeyName=payload;SharedAccessKey=+eJk5G3T28htUMgVzUWRzwdDjzIR/DpNS+ASbEq4Emc=");
+                    ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebuspayload.servicebus.windows.net/;SharedAccessKeyName=payload;SharedAccessKey=cZhgSZ1zOPeUqAfpH6n+Kqj+GB3I0JcTQ+ASbPTytQE=");
                     ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("payloadtopic");
                     ServiceBusMessageBatch serviceBusMessageBatch = await serviceBusSender.CreateMessageBatchAsync();
                     ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(jsonData, Formatting.None,
