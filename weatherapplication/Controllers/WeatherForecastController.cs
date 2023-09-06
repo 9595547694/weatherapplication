@@ -48,7 +48,7 @@ namespace weatherapplication.Controllers
                  ""before"": ""4b2655489b7e90a4208d3615b9959a17a8f0b92f"",
                     ""after"": ""5a7768ffdfc2672572ef4d4f67b60070c098e7bd"",
                 ""pull_request"": {
-                ""title"": ""Fix button""
+                ""title"": ""Fix button1""
                    }
                 }";
                 dynamic obj = JsonConvert.DeserializeObject(json);
