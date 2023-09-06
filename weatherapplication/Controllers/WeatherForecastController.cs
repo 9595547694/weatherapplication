@@ -1,8 +1,11 @@
 using Azure.Messaging.ServiceBus;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Dynamic;
 using System.Text;
 using System.Text.Json.Nodes;
+using static weatherapplication.Commit;
 
 namespace weatherapplication.Controllers
 {
@@ -16,6 +19,7 @@ namespace weatherapplication.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _log;
+        private readonly string jsonString;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
@@ -39,6 +43,7 @@ namespace weatherapplication.Controllers
         [Route("SentToServiceBus")]
         public async Task<IActionResult> SentToServiceBus()
         {
+          
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
                 string payload = await reader.ReadToEndAsync();
@@ -47,8 +52,8 @@ namespace weatherapplication.Controllers
               
                 try
                 {
-                    ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebus8.servicebus.windows.net/;SharedAccessKeyName=mypolicy;SharedAccessKey=qKB5Gq6kELfeAAH6A7Oj9RsWbBr4C83q1+ASbFomogM=;EntityPath=mytopic");
-                    ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("mytopic");
+                    ServiceBusClient serviceBusClient = new ServiceBusClient("Endpoint=sb://servicebuspayload.servicebus.windows.net/;SharedAccessKeyName=payload;SharedAccessKey=+eJk5G3T28htUMgVzUWRzwdDjzIR/DpNS+ASbEq4Emc=");
+                    ServiceBusSender serviceBusSender = serviceBusClient.CreateSender("payloadtopic");
                     ServiceBusMessageBatch serviceBusMessageBatch = await serviceBusSender.CreateMessageBatchAsync();
                     ServiceBusMessage serviceBusMessage = new ServiceBusMessage(JsonConvert.SerializeObject(jsonData, Formatting.None,
                     new JsonSerializerSettings()
