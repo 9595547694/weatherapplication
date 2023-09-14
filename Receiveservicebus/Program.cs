@@ -40,8 +40,8 @@ IConfigurationBuilder configBuilder = new ConfigurationBuilder().SetBasePath(Dir
 
 IConfiguration configuration = configBuilder.Build();
 client = new ServiceBusClient(
-     configuration.GetSection("BusConnectionStrings").Value,
-    //"contosoordersns1.servicebus.windows.net",
+     //configuration.GetSection("BusConnectionStrings").Value,
+    "servicebusPayload.servicebus.windows.net",
     new DefaultAzureCredential(),
     clientOptions);
 
@@ -50,7 +50,7 @@ client = new ServiceBusClient(
 processor = client.CreateProcessor("payloadtopic", "payloadsubscription", new ServiceBusProcessorOptions());
 //processor = client.CreateProcessor(configuration.GetSection("Topic").Value, new ServiceBusProcessorOptions());
 
-Log.Logger = new LoggerConfiguration().WriteTo.File(configuration.GetSection("Log").Value).CreateLogger();
+//Log.Logger = new LoggerConfiguration().WriteTo.File(configuration.GetSection("Log").Value).CreateLogger();
 
 
 try
