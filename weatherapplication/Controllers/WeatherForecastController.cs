@@ -157,7 +157,7 @@ namespace weatherapplication.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return Ok(ex.ToString());
+                 return Ok(ex.ToString());
                 }
             }
         }

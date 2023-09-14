@@ -1,207 +1,186 @@
-﻿namespace weatherapplication
-{
-
-    public class WebhookPayload
+﻿{
+    "ref": "refs/heads/master",
+  "before": "4b2655489b7e90a4208d3615b9959a17a8f0b92f",
+  "after": "5a7768ffdfc2672572ef4d4f67b60070c098e7bd",
+  "repository": {
+        "id": 683960802,
+    "node_id": "R_kgDOKMRp4g",
+    "name": "weatherapplication",
+    "full_name": "9595547694/weatherapplication",
+    "private": false,
+    "owner": {
+            "name": "9595547694",
+      "email": "71809298+9595547694@users.noreply.github.com",
+      "login": "9595547694",
+      "id": 71809298,
+      "node_id": "MDQ6VXNlcjcxODA5Mjk4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71809298?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/9595547694",
+      "html_url": "https://github.com/9595547694",
+      "followers_url": "https://api.github.com/users/9595547694/followers",
+      "following_url": "https://api.github.com/users/9595547694/following{/other_user}",
+      "gists_url": "https://api.github.com/users/9595547694/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/9595547694/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/9595547694/subscriptions",
+      "organizations_url": "https://api.github.com/users/9595547694/orgs",
+      "repos_url": "https://api.github.com/users/9595547694/repos",
+      "events_url": "https://api.github.com/users/9595547694/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/9595547694/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/9595547694/weatherapplication",
+    "description": null,
+    "fork": false,
+    "url": "https://github.com/9595547694/weatherapplication",
+    "forks_url": "https://api.github.com/repos/9595547694/weatherapplication/forks",
+    "keys_url": "https://api.github.com/repos/9595547694/weatherapplication/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/9595547694/weatherapplication/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/9595547694/weatherapplication/teams",
+    "hooks_url": "https://api.github.com/repos/9595547694/weatherapplication/hooks",
+    "issue_events_url": "https://api.github.com/repos/9595547694/weatherapplication/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/9595547694/weatherapplication/events",
+    "assignees_url": "https://api.github.com/repos/9595547694/weatherapplication/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/9595547694/weatherapplication/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/9595547694/weatherapplication/tags",
+    "blobs_url": "https://api.github.com/repos/9595547694/weatherapplication/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/9595547694/weatherapplication/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/9595547694/weatherapplication/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/9595547694/weatherapplication/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/9595547694/weatherapplication/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/9595547694/weatherapplication/languages",
+    "stargazers_url": "https://api.github.com/repos/9595547694/weatherapplication/stargazers",
+    "contributors_url": "https://api.github.com/repos/9595547694/weatherapplication/contributors",
+    "subscribers_url": "https://api.github.com/repos/9595547694/weatherapplication/subscribers",
+    "subscription_url": "https://api.github.com/repos/9595547694/weatherapplication/subscription",
+    "commits_url": "https://api.github.com/repos/9595547694/weatherapplication/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/9595547694/weatherapplication/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/9595547694/weatherapplication/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/9595547694/weatherapplication/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/9595547694/weatherapplication/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/9595547694/weatherapplication/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/9595547694/weatherapplication/merges",
+    "archive_url": "https://api.github.com/repos/9595547694/weatherapplication/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/9595547694/weatherapplication/downloads",
+    "issues_url": "https://api.github.com/repos/9595547694/weatherapplication/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/9595547694/weatherapplication/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/9595547694/weatherapplication/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/9595547694/weatherapplication/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/9595547694/weatherapplication/labels{/name}",
+    "releases_url": "https://api.github.com/repos/9595547694/weatherapplication/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/9595547694/weatherapplication/deployments",
+    "created_at": 1693204892,
+    "updated_at": "2023-08-28T06:42:01Z",
+    "pushed_at": 1693466659,
+    "git_url": "git://github.com/9595547694/weatherapplication.git",
+    "ssh_url": "git@github.com:9595547694/weatherapplication.git",
+    "clone_url": "https://github.com/9595547694/weatherapplication.git",
+    "svn_url": "https://github.com/9595547694/weatherapplication",
+    "homepage": null,
+    "size": 20,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "language": "C#",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "has_discussions": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "archived": false,
+    "disabled": false,
+    "open_issues_count": 0,
+    "license": null,
+    "allow_forking": true,
+    "is_template": false,
+    "web_commit_signoff_required": false,
+    "topics": [],
+    "visibility": "public",
+    "forks": 0,
+    "open_issues": 0,
+    "watchers": 0,
+    "default_branch": "master",
+    "stargazers": 0,
+    "master_branch": "master"
+  },
+  "pusher": {
+        "name": "9595547694",
+    "email": "71809298+9595547694@users.noreply.github.com"
+  },
+  "sender": {
+        "login": "9595547694",
+    "id": 71809298,
+    "node_id": "MDQ6VXNlcjcxODA5Mjk4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/71809298?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/9595547694",
+    "html_url": "https://github.com/9595547694",
+    "followers_url": "https://api.github.com/users/9595547694/followers",
+    "following_url": "https://api.github.com/users/9595547694/following{/other_user}",
+    "gists_url": "https://api.github.com/users/9595547694/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/9595547694/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/9595547694/subscriptions",
+    "organizations_url": "https://api.github.com/users/9595547694/orgs",
+    "repos_url": "https://api.github.com/users/9595547694/repos",
+    "events_url": "https://api.github.com/users/9595547694/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/9595547694/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "base_ref": null,
+  "compare": "https://github.com/9595547694/weatherapplication/compare/4b2655489b7e...5a7768ffdfc2",
+  "commits": [
     {
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-        public class Author
-        {
-            public string name { get; set; }
-            public string email { get; set; }
-            public string username { get; set; }
-        }
-
-        public class Commit
-        {
-            public string id { get; set; }
-            public string tree_id { get; set; }
-            public bool distinct { get; set; }
-            public string message { get; set; }
-            public DateTime timestamp { get; set; }
-            public string url { get; set; }
-            public Author author { get; set; }
-            public Committer committer { get; set; }
-            public List<object> added { get; set; }
-            public List<object> removed { get; set; }
-            public List<string> modified { get; set; }
-        }
-
-        public class Committer
-        {
-            public string name { get; set; }
-            public string email { get; set; }
-            public string username { get; set; }
-        }
-
-        public class HeadCommit
-        {
-            public string id { get; set; }
-            public string tree_id { get; set; }
-            public bool distinct { get; set; }
-            public string message { get; set; }
-            public DateTime timestamp { get; set; }
-            public string url { get; set; }
-            public Author author { get; set; }
-            public Committer committer { get; set; }
-            public List<object> added { get; set; }
-            public List<object> removed { get; set; }
-            public List<string> modified { get; set; }
-        }
-
-        public class Owner
-        {
-            public string name { get; set; }
-            public string email { get; set; }
-            public string login { get; set; }
-            public int id { get; set; }
-            public string node_id { get; set; }
-            public string avatar_url { get; set; }
-            public string gravatar_id { get; set; }
-            public string url { get; set; }
-            public string html_url { get; set; }
-            public string followers_url { get; set; }
-            public string following_url { get; set; }
-            public string gists_url { get; set; }
-            public string starred_url { get; set; }
-            public string subscriptions_url { get; set; }
-            public string organizations_url { get; set; }
-            public string repos_url { get; set; }
-            public string events_url { get; set; }
-            public string received_events_url { get; set; }
-            public string type { get; set; }
-            public bool site_admin { get; set; }
-        }
-
-        public class Pusher
-        {
-            public string name { get; set; }
-            public string email { get; set; }
-        }
-
-        public class Repository
-        {
-            public int id { get; set; }
-            public string node_id { get; set; }
-            public string name { get; set; }
-            public string full_name { get; set; }
-            public bool @private { get; set; }
-            public Owner owner { get; set; }
-            public string html_url { get; set; }
-            public object description { get; set; }
-            public bool fork { get; set; }
-            public string url { get; set; }
-            public string forks_url { get; set; }
-            public string keys_url { get; set; }
-            public string collaborators_url { get; set; }
-            public string teams_url { get; set; }
-            public string hooks_url { get; set; }
-            public string issue_events_url { get; set; }
-            public string events_url { get; set; }
-            public string assignees_url { get; set; }
-            public string branches_url { get; set; }
-            public string tags_url { get; set; }
-            public string blobs_url { get; set; }
-            public string git_tags_url { get; set; }
-            public string git_refs_url { get; set; }
-            public string trees_url { get; set; }
-            public string statuses_url { get; set; }
-            public string languages_url { get; set; }
-            public string stargazers_url { get; set; }
-            public string contributors_url { get; set; }
-            public string subscribers_url { get; set; }
-            public string subscription_url { get; set; }
-            public string commits_url { get; set; }
-            public string git_commits_url { get; set; }
-            public string comments_url { get; set; }
-            public string issue_comment_url { get; set; }
-            public string contents_url { get; set; }
-            public string compare_url { get; set; }
-            public string merges_url { get; set; }
-            public string archive_url { get; set; }
-            public string downloads_url { get; set; }
-            public string issues_url { get; set; }
-            public string pulls_url { get; set; }
-            public string milestones_url { get; set; }
-            public string notifications_url { get; set; }
-            public string labels_url { get; set; }
-            public string releases_url { get; set; }
-            public string deployments_url { get; set; }
-            public int created_at { get; set; }
-            public DateTime updated_at { get; set; }
-            public int pushed_at { get; set; }
-            public string git_url { get; set; }
-            public string ssh_url { get; set; }
-            public string clone_url { get; set; }
-            public string svn_url { get; set; }
-            public object homepage { get; set; }
-            public int size { get; set; }
-            public int stargazers_count { get; set; }
-            public int watchers_count { get; set; }
-            public string language { get; set; }
-            public bool has_issues { get; set; }
-            public bool has_projects { get; set; }
-            public bool has_downloads { get; set; }
-            public bool has_wiki { get; set; }
-            public bool has_pages { get; set; }
-            public bool has_discussions { get; set; }
-            public int forks_count { get; set; }
-            public object mirror_url { get; set; }
-            public bool archived { get; set; }
-            public bool disabled { get; set; }
-            public int open_issues_count { get; set; }
-            public object license { get; set; }
-            public bool allow_forking { get; set; }
-            public bool is_template { get; set; }
-            public bool web_commit_signoff_required { get; set; }
-            public List<object> topics { get; set; }
-            public string visibility { get; set; }
-            public int forks { get; set; }
-            public int open_issues { get; set; }
-            public int watchers { get; set; }
-            public string default_branch { get; set; }
-            public int stargazers { get; set; }
-            public string master_branch { get; set; }
-        }
-
-        public class Root
-        {
-            public string @ref { get; set; }
-            public string before { get; set; }
-            public string after { get; set; }
-            public Repository repository { get; set; }
-            public Pusher pusher { get; set; }
-            public Sender sender { get; set; }
-            public bool created { get; set; }
-            public bool deleted { get; set; }
-            public bool forced { get; set; }
-            public object base_ref { get; set; }
-            public string compare { get; set; }
-            public List<Commit> commits { get; set; }
-            public HeadCommit head_commit { get; set; }
-        }
-
-        public class Sender
-        {
-            public string login { get; set; }
-            public int id { get; set; }
-            public string node_id { get; set; }
-            public string avatar_url { get; set; }
-            public string gravatar_id { get; set; }
-            public string url { get; set; }
-            public string html_url { get; set; }
-            public string followers_url { get; set; }
-            public string following_url { get; set; }
-            public string gists_url { get; set; }
-            public string starred_url { get; set; }
-            public string subscriptions_url { get; set; }
-            public string organizations_url { get; set; }
-            public string repos_url { get; set; }
-            public string events_url { get; set; }
-            public string received_events_url { get; set; }
-            public string type { get; set; }
-            public bool site_admin { get; set; }
-        }
-
-
+        "id": "5a7768ffdfc2672572ef4d4f67b60070c098e7bd",
+      "tree_id": "214064290b7e0eeb0244da87a4ae2b57f618ab6c",
+      "distinct": true,
+      "message": "payload added",
+      "timestamp": "2023-08-31T07:24:00+00:00",
+      "url": "https://github.com/9595547694/weatherapplication/commit/5a7768ffdfc2672572ef4d4f67b60070c098e7bd",
+      "author": {
+            "name": "Vaibhav Chandrabhan Pawar",
+        "email": "VAIBHAVCPAWAR43388@GMAIL.COM",
+        "username": "9595547694"
+      },
+      "committer": {
+            "name": "Vaibhav Chandrabhan Pawar",
+        "email": "VAIBHAVCPAWAR43388@GMAIL.COM",
+        "username": "9595547694"
+      },
+      "added": [],
+      "removed": [],
+      "modified": [
+        "weatherapplication/Controllers/WeatherForecastController.cs"
+      ]
     }
+  ],
+  "head_commit": {
+        "id": "5a7768ffdfc2672572ef4d4f67b60070c098e7bd",
+    "tree_id": "214064290b7e0eeb0244da87a4ae2b57f618ab6c",
+    "distinct": true,
+    "message": "payload added",
+    "timestamp": "2023-08-31T07:24:00+00:00",
+    "url": "https://github.com/9595547694/weatherapplication/commit/5a7768ffdfc2672572ef4d4f67b60070c098e7bd",
+    "author": {
+            "name": "Vaibhav Chandrabhan Pawar",
+      "email": "VAIBHAVCPAWAR43388@GMAIL.COM",
+      "username": "9595547694"
+    },
+    "committer": {
+            "name": "Vaibhav Chandrabhan Pawar",
+      "email": "VAIBHAVCPAWAR43388@GMAIL.COM",
+      "username": "9595547694"
+    },
+    "added": [],
+    "removed": [],
+    "modified": [
+      "weatherapplication/Controllers/WeatherForecastController.cs"
+    ]
+  }
 }
