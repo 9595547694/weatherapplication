@@ -40,30 +40,8 @@ namespace weatherapplication.Controllers
             .ToArray();
         }
 
-        [JsonConverter(typeof(JsonPathConverter))]
-        public class GithubPayload
-        {
-            [JsonProperty("repository.owner.name")]
-            public string name { get; set; }
-
-            [JsonProperty("before")]
-            public string before { get; set; }
-
-            [JsonProperty("after")]
-            public string after { get; set; }
-
-            [JsonProperty("Action")]
-            public string Action { get; set; }  // action
-
-            [JsonProperty("repository.id")]
-            public string id { get; set; }    // pull_request.title
-
-            /* [JsonProperty("interest.details.months")]
-             public string Months { get; set; }*/
-
-        }
-
-        class JsonPathConverter : JsonConverter
+       
+       public  class JsonPathConverter : JsonConverter
         {
             public override object ReadJson(JsonReader reader, Type objectType,
                                             object existingValue, JsonSerializer serializer)
@@ -130,13 +108,13 @@ namespace weatherapplication.Controllers
                 entity.Name = obj.pull_request.title;*/
 
                 string payload = await reader.ReadToEndAsync();
-                GithubPayload p = JsonConvert.DeserializeObject<GithubPayload>(payload);
+                GithubPayload1 p = JsonConvert.DeserializeObject<GithubPayload1>(payload);
                 dynamic jsonData = JsonConvert.DeserializeObject(payload);
                
                 string commitId = jsonData.after;
 
               //  var payloadJson = Encoding.UTF8.GetString(payload);
-                GithubPayload gitHubPayload = System.Text.Json.JsonSerializer.Deserialize<GithubPayload>(payload);
+                GithubPayload1 gitHubPayload = System.Text.Json.JsonSerializer.Deserialize<GithubPayload1>(payload);
 
                 try
                 {

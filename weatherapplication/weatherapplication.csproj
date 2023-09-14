@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Github.cs" />
+    <Compile Remove="GithubPayload.cs" />
     <Compile Remove="Webhook.cs" />
   </ItemGroup>
 
