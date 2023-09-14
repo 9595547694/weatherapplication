@@ -32,18 +32,18 @@ Task ErrorHandler(ProcessErrorEventArgs args)
 // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
 
 // TODO: Replace the <NAMESPACE-NAME> placeholder
-var clientOptions = new ServiceBusClientOptions()
+/*var clientOptions = new ServiceBusClientOptions()
 {
     TransportType = ServiceBusTransportType.AmqpWebSockets
-};
+};*/
 IConfigurationBuilder configBuilder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile($"appsettings.json", true);
 
 IConfiguration configuration = configBuilder.Build();
 client = new ServiceBusClient(
-     //configuration.GetSection("BusConnectionStrings").Value,
+    //configuration.GetSection("BusConnectionStrings").Value,
     "servicebusPayload.servicebus.windows.net",
-    new DefaultAzureCredential(),
-    clientOptions);
+    new DefaultAzureCredential());
+    //clientOptions);
 
 // create a processor that we can use to process the messages
 // TODO: Replace the <QUEUE-NAME> placeholder
